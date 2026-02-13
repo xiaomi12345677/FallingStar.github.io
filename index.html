@@ -24,6 +24,13 @@
   </style>
 </head>
 <body>
+  <audio id="莫奈花园" src="music/莫奈花园.mp3" loop autoplay>
+   <script>
+     window.addEventListener('DOMContentLoaded', function(){
+       let audio = document.getElementById('bgm');
+       audio.play().catch(err => {});
+     });
+   </script>
   <h1>欢迎来到我的网页！</h1>
   <p>这里是晓米哦，大概会做一些梦女的内容.</p>
      <img src="images/梦图1.PNG"  style="display:block; margin:0 auto;" alt="梦图" width="400">
