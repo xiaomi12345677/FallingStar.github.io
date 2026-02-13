@@ -21,6 +21,17 @@
       text-align: center;
       white-space: nowrap;
     }
+    .top-box{
+      position: relative;
+      z-index: 9999;
+      margin-top: 30px;
+ }
+    
+    .pic3{
+      display: block;
+      margin: 10px auto;
+      width: 300px;
+   }
     .pic-box {
        position: relative;
        width: 400px;
@@ -34,6 +45,7 @@
        object-fit: contain;
        left: 0;
        top: 0;
+       z-index:1;
      }
      .pic2 {
        position: absolute;
@@ -43,14 +55,16 @@
        left: 50%;
        top: 50%;
        transform: translate(-50%, -50%);
+       z-index:2;
       }
   </style>
 </head>
 <body>
 
+<div class="top-box">
   <h1>欢迎来到我的网页！</h1>
   <p>这里是晓米哦，大概会做一些梦女的内容.</p>
-  
+  <img class="pic3" src="images/素材2.png">
    <div class="pic-box">
      <img class="pic1" src="images/梦图1.PNG" style="width:400px;">
      <img class="pic2" src="images/素材1.png" style="width:1000px;">
