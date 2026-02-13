@@ -5,38 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   <title>晓米の页面</title>
-  <link rel="icon" href="images/favicon.jpg">
   <style>
     body{
       margin: 0;
       padding: 0;
-      background-image: url("images/底图1.jpg");
-      background-size: cover;
-      background-position: center;
-     background-repeat: no-repeat;
-      background-attachment: fixed;
-      font-family: "YouYuan", "Microsoft YaHei", sans-serif;
+      background: #f5f5f5;
+      font-family: "Microsoft YaHei", sans-serif;
       color: #993300;
       font-size: 26px;
       text-align: center;
-      white-space: nowrap;
+      padding: 40px 0;
     }
   </style>
 </head>
 <body>
+
   <h1>欢迎来到我的网页！</h1>
   <p>这里是晓米哦，大概会做一些梦女的内容.</p>
-  <img src="images/梦图1.PNG" style="display:block; margin:0 auto;" alt="梦图" width="400">
+
+  <img src="images/梦图1.PNG" style="width:400px;">
+
+
   <audio id="mn" src="music/莫奈花园.mp3" loop autoplay>
   
   <script>
-    window.addEventListener('DOMContentLoaded', function(){ 
+    window.addEventListener('DOMContentLoaded', function(){
       let audio = document.getElementById('mn');
-      audio.play().catch(err => {
-        console.log('自动播放被浏览器阻止，请点击页面后播放', err);
-      });
+      audio.play().catch(err=>{});
     });
   </script>
-  
+
 </body>
 </html>
