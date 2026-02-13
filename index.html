@@ -24,10 +24,10 @@
   </style>
 </head>
 <body>
-  <audio id="莫奈花园" src="music/莫奈花园.mp3" loop autoplay>
+  <audio id="mn" src="music/莫奈花园.mp3" loop autoplay>
   <script>
     window.addEventListener('DOMContentLoaded', function(){
-       let audio = document.getElementById('莫奈花园');
+       let audio = document.getElementById('mn');
         audio.play().catch(err => {
          console.log('自动播放被浏览器阻止，请点击页面后播放', err);
         });
