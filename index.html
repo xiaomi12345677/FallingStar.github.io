@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>晓米の页面</title>
     <style>
-        body{
+        body {
             margin: 0;
             padding: 0;
             background-image: url("images/底图4.jpg");
@@ -17,14 +17,14 @@
             color: white;
             font-size: 26px;
             text-align: center;
-            white-space: nowrap;
+            white-space: normal; 
         }
-        .top-box{
+        .top-box {
             position: relative;
-            z-index: 9999;
+            z-index: 10;
             margin-top: 30px;
         }
-        .pic3{
+        .pic3 {
             display: block;
             margin: 10px auto;
             width: 300px;
@@ -43,7 +43,7 @@
             object-fit: contain;
             left: 0;
             top: 0;
-            z-index:1;
+            z-index: 1;
         }
         .pic2 {
             position: absolute;
@@ -53,7 +53,7 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            z-index:2;
+            z-index: 2;
         }
         .page {
             display: none;
@@ -74,18 +74,18 @@
     </style>
 </head>
 <body>
-<audio id="mn" src="music/莫奈花园.mp3" loop autoplay>
+<audio id="mn" src="music/莫奈花园.mp3" loop autoplay></audio>
 
 <div id="page1" class="page active">
     <div class="top-box">
         <h1>关于我和梦角</h1>
         <p>Hi，这里是晓米哦.</p>
-        <a href="#" onclick="showPage('page2')">
+        <a href="javascript:void(0)" onclick="showPage('page2')">
             <img class="pic3" src="images/素材3.png" alt="点击进入下一页">
         </a>
         <div class="pic-box">
-            <img class="pic1" src="images/梦图2.png" style="width:400px;">
-            <img class="pic2" src="images/素材1.png" style="width:1000px;">
+            <img class="pic1" src="images/梦图2.png">
+            <img class="pic2" src="images/素材1.png">
         </div>
     </div>
 </div>
@@ -94,19 +94,22 @@
     <div class="top-box">
         <h1>正在装修中</h1>
         <p>请输入文本</p>
-        <a href="#" onclick="showPage('page1')" class="back-btn">返回上一页</a>
+        <a href="javascript:void(0)" onclick="showPage('page1')" class="back-btn">返回上一页</a>
     </div>
 </div>
 
 <script>
 function showPage(pageId){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    let target = document.getElementById(pageId);
+    if(target) target.classList.add('active');
 }
-window.addEventListener('DOMContentLoaded',function(){
+
+window.addEventListener('DOMContentLoaded', function(){
     let audio = document.getElementById('mn');
-    audio.play().catch(err=>{});
-    showPage('page1');
+    document.body.onclick = function() {
+        audio.play().catch(err => console.log("播放被拦截"));
+    };
 });
 </script>
 </body>
