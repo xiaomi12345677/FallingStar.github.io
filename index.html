@@ -1,85 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-
-<title>晓米の页面</title>
-  <link rel="icon" href="images/favicon.jpg">
-  <style>
-    body{
-      margin: 0;
-      padding: 0;
-      background-image: url("images/底图4.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      font-family: "YouYuan", "Microsoft YaHei", sans-serif;
-      color: white;
-      font-size: 26px;
-      text-align: center;
-      white-space: nowrap;
-    }
-    .top-box{
-      position: relative;
-      z-index: 9999;
-      margin-top: 30px;
- }
-    
-    .pic3{
-      display: block;
-      margin: 10px auto;
-      width: 300px;
-   }
-    .pic-box {
-       position: relative;
-       width: 400px;
-       height: 400px;
-       margin: 30px auto;
-     }
-     .pic1 {
-       position: absolute;
-       width: 100%;
-       height: 100%;
-       object-fit: contain;
-       left: 0;
-       top: 0;
-       z-index:1;
-     }
-     .pic2 {
-       position: absolute;
-       width: 140%;
-       height: 130%;
-       object-fit: contain;
-       left: 50%;
-       top: 50%;
-       transform: translate(-50%, -50%);
-       z-index:2;
-      }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我和梦角</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url("images/底图4.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: "YouYuan", "Microsoft YaHei", sans-serif;
+            color: white;
+            font-size: 26px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .top-box{
+            position: relative;
+            z-index: 9999;
+            margin-top: 30px;
+        }
+        .pic3{
+            display: block;
+            margin: 10px auto;
+            width: 300px;
+            cursor: pointer;
+        }
+        .pic-box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 30px auto;
+        }
+        .pic1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            left: 0;
+            top: 0;
+            z-index:1;
+        }
+        .pic2 {
+            position: absolute;
+            width: 140%;
+            height: 130%;
+            object-fit: contain;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index:2;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border: 2px solid white;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body>
+<audio id="mn" src="music/莫奈花园.mp3" loop autoplay>
 
-<div class="top-box">
-  <h1>欢迎来到我的网页！</h1>
-  <p>这里是晓米哦，大概会做一些梦女的内容.</p>
-  <a href="pages/page2.html">
-  <img class="pic3" src="images/素材3.png" alt="点击进入下一页">
-</a>
-   <div class="pic-box">
-     <img class="pic1" src="images/梦图2.png" style="width:400px;">
-     <img class="pic2" src="images/素材1.png" style="width:1000px;">
-   </div>
+<div id="page1" class="page active">
+    <div class="top-box">
+        <h1>关于我和梦角</h1>
+        <p>Hi，这里是晓米哦.</p>
+        <a href="#" onclick="showPage('page2')">
+            <img class="pic3" src="images/素材3.png" alt="点击进入下一页">
+        </a>
+        <div class="pic-box">
+            <img class="pic1" src="images/梦图2.png" style="width:400px;">
+            <img class="pic2" src="images/素材1.png" style="width:1000px;">
+        </div>
+    </div>
+</div>
 
-  <audio id="mn" src="music/莫奈花园.mp3" loop autoplay>
-  
-  <script>
-    window.addEventListener('DOMContentLoaded', function(){
-      let audio = document.getElementById('mn');
-      audio.play().catch(err=>{});
-    });
-  </script>
+<div id="page2" class="page">
+    <div class="top-box">
+        <h1>正在装修中</h1>
+        <p>请输入文本</p>
+        <a href="#" onclick="showPage('page1')" class="back-btn">返回上一页</a>
+    </div>
+</div>
 
+<script>
+function showPage(pageId){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+}
+window.addEventListener('DOMContentLoaded',function(){
+    let audio = document.getElementById('mn');
+    audio.play().catch(err=>{});
+    showPage('page1');
+});
+</script>
 </body>
 </html>
